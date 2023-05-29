@@ -13,7 +13,7 @@
     # KMeansClustering(clusters,trainLabels,trainData,testLabels,testData)      Return Accuracy of using KmeansClustering on this data
     # BIRCHClustering(clusters,trainLabels,trainData,testLabels,testData)       Return Accuracy of using BIRCHClustering on this data
     # DecisionTreeClassifying(trainLabels,trainData,testLabels,testData)        Return Accuracy of using Decision Tree Classification on this data
-    # PlotPieDistribution(data_list,pdfFile)                                    Given a list, Output the distribution to a PDF file
+    # PlotPieDistribution(data_list,pdfFile,title)                              Given a list, output name, title. Output the distribution to a PDF file
 
 
 
@@ -385,12 +385,12 @@ def DecisionTreeClassifying(trainLabels,trainData,testLabels,testData):
 
 
 ####################################################################################################
-# PlotPieDistribution(list, pdfFile) Function
+# PlotPieDistribution(list, pdfFile, title) Function
 ####################################################################################################
 
 # This template is originally generated using CHATGPT & modified by John Le to work
 
-def PlotPieDistribution(data_list, pdfFile):
+def PlotPieDistribution(data_list, pdfFile, title):
     # Count the occurrences of unique elements in the list
     unique_elements = set(data_list)
     counts = [data_list.count(element) for element in unique_elements]
@@ -399,8 +399,12 @@ def PlotPieDistribution(data_list, pdfFile):
     labels = list(unique_elements)
 
     # Plot the pie chart
+    plt.figure(figsize=(9, 10))  # Set the figure size to make the pie chart smaller
     plt.pie(counts, labels=labels, autopct='%1.1f%%')
     plt.axis('equal')  # Equal aspect ratio ensures circular chart
+
+    # Add a title to the pie chart
+    plt.title(title)
 
     # Add data to the chart as a text box
     data_text = '\n'.join([f'{label}: {count}' for label, count in zip(labels, counts)])

@@ -170,7 +170,7 @@ print("This accuracy seems fairly low, lets review the dataset to see if we can 
 # Though the accuracy may not be very high. Lets review our initial dataset to see if we can learn anything
 
 # Lets start with the distribution of ranks
-PlotPieDistribution(trainLabels,outputFigure)
+PlotPieDistribution(trainLabels,outputFigure,"Figure 1: Distribution of Rank")
 
 # We can see in the plot that Ranks 1, 7, & 8 make up less than 10% of the data
 # Lets try grouping the ranks to see if that allows for a more accurate "Approximate Ranking"
